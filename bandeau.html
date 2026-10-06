@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        background-color: transparent;
+        margin: 0;
+        padding: 10px;
+        width: 480px;
+        font-family: 'Cinzel', serif;
+        overflow: hidden;
+        box-sizing: content-box;
+    }
+
+    /* Cadre principal */
+    .banner {
+        position: relative;
+        overflow: hidden;
+        padding: 16px 20px 18px;
+        text-align: center;
+        background:
+            linear-gradient(105deg, transparent 42%, rgba(255,255,255,0.08) 50%, transparent 58%) no-repeat 120% 0 / 250% 100%,
+            linear-gradient(145deg, rgba(14,14,14,0.78), rgba(6,6,6,0.85));
+        backdrop-filter: blur(3px);
+        border-top: 1.5px solid rgba(136,136,136,0.4);
+        border-left: 1.5px solid rgba(102,102,102,0.4);
+        border-right: 1.5px solid rgba(34,34,34,0.4);
+        border-bottom: 1.5px solid rgba(17,17,17,0.4);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.6), 0 0 14px rgba(180,0,0,0.12);
+        animation: sweep 1.6s ease-in-out 0.4s 1 both, glow 3s ease-in-out 2s infinite;
+    }
+
+    /* Liserés latéraux */
+    .banner::before, .banner::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1.5px;
+        background: linear-gradient(to bottom, rgba(255,26,26,0.6), rgba(128,0,0,0.4), rgba(255,26,26,0.6));
+        box-shadow: 0 0 5px rgba(255,26,26,0.2);
+    }
+    .banner::before { left: 0; }
+    .banner::after  { right: 0; }
+
+    /* Encoches aux coins */
+    .tech-notch {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border: 1.5px solid rgba(255,26,26,0.5);
+    }
+    .notch-tl { top: -1.5px; left: -1.5px; border-right: none; border-bottom: none; }
+    .notch-tr { top: -1.5px; right: -1.5px; border-left: none; border-bottom: none; }
+    .notch-bl { bottom: -1.5px; left: -1.5px; border-right: none; border-top: none; }
+    .notch-br { bottom: -1.5px; right: -1.5px; border-left: none; border-top: none; }
+
+    /* Titre */
+    .title {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 4px;
+        color: rgba(238,238,238,0.97);
+        text-shadow: 0 0 8px rgba(255,26,26,0.35);
+    }
+    .subtitle {
+        margin: 6px 0 0;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: rgba(255,102,102,0.9);
+        text-shadow: 0 0 4px rgba(255,26,26,0.3);
+    }
+
+    @keyframes sweep {
+        from { background-position: 120% 0, 0 0; }
+        to   { background-position: -20% 0, 0 0; }
+    }
+    @keyframes glow {
+        0%, 100% { box-shadow: 0 6px 15px rgba(0,0,0,0.6), 0 0 10px rgba(180,0,0,0.10); }
+        50%      { box-shadow: 0 6px 15px rgba(0,0,0,0.6), 0 0 22px rgba(255,26,26,0.28); }
+    }
+</style>
+</head>
+<body>
+
+    <div class="banner">
+        <div class="tech-notch notch-tl"></div>
+        <div class="tech-notch notch-tr"></div>
+        <div class="tech-notch notch-bl"></div>
+        <div class="tech-notch notch-br"></div>
+
+        <h1 class="title" id="title"></h1>
+        <p class="subtitle" id="subtitle"></p>
+    </div>
+
+<script>
+    /* ======== À MODIFIER ICI ======== */
+    var TITLE    = "FRÈRES D'ARMES";
+    var SUBTITLE = "Recrutement ouvert";
+    /* ================================ */
+
+    document.getElementById('title').textContent = TITLE;
+    document.getElementById('subtitle').textContent = SUBTITLE;
+</script>
+</body>
+</html>
